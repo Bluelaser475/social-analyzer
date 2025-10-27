@@ -110,6 +110,10 @@ app.use(express.urlencoded({
 app.use(express.json())
 app.use(express.static('public'))
 
+app.get('/', function (req, res) {
+  res.redirect('/app.html')
+})
+
 app.post('/get_logs', async function (req, res, next) {
   let last_line = 'nothinghere'
   if (req.body.uuid !== '') {
