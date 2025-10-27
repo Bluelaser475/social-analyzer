@@ -817,14 +817,11 @@ async function list_all_websites () {
   console.log('[Listing] Available websites\n' + temp_arr.join('\n'))
 }
 
-let server_host = 'localhost'
+let server_host = '0.0.0.0'
 const server_port = process.env.PORT || 9005
 
 if (argv.grid !== '') {
   helper.grid_url = argv.grid
-}
-if (argv.docker) {
-  server_host = '0.0.0.0'
 }
 if (argv.gui) {
   app.listen(server_port, server_host, function () {
