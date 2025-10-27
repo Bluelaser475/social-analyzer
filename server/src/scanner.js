@@ -13,7 +13,8 @@ export function executePythonScan(options) {
       method = 'all',
       filter = 'good',
       top = '0',
-      timeout = 300000
+      timeout = 300000,
+      safeMode = false
     } = options;
 
     if (!username || username.trim() === '') {

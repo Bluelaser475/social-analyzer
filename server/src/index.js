@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import 'express-async-errors';
 import { executePythonScan } from './scanner.js';
 import { supabase } from './supabaseClient.js';
+import { validateSafeModeRequest, getSafeSourcesList } from './safeMode.js';
 
 dotenv.config();
 
@@ -17,8 +18,25 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+app.get('/api/safe-sources', (req, res) => {
+  try {
+    const safeSources = getSafeSourcesList();
+    res.json({
+      success: true,
+      sources: safeSources,
+      count: safeSources.length
+    });
+  } catch (error) {
+    console.error('Failed to retrieve safe sources:', error);
+    res.status(500).json({
+      error: 'Internal Server Error',
+      message: 'Failed to retrieve safe sources list'
+    });
+  }
+});
+
 app.post('/api/scan', async (req, res) => {
-  const { username, websites, method, filter, top } = req.body;
+  const { username, websites, method, filter, top, safeMode } = req.body;
 
   if (!username || username.trim() === '') {
     return res.status(400).json({
@@ -27,13 +45,32 @@ app.post('/api/scan', async (req, res) => {
     });
   }
 
+  const enableSafeMode = safeMode === true;
+  let websitesToScan = websites || 'all';
+
+  if (enableSafeMode) {
+    const validation = validateSafeModeRequest(websitesToScan, true);
+
+    if (!validation.valid) {
+      return res.status(400).json({
+        error: 'Bad Request',
+        message: validation.error,
+        safeMode: true,
+        availableSources: getSafeSourcesList()
+      });
+    }
+
+    websitesToScan = validation.filteredWebsites;
+  }
+
   const scanOptions = {
     username: username.trim(),
-    websites: websites || 'all',
+    websites: websitesToScan,
     method: method || 'all',
     filter: filter || 'good',
     top: top || '0',
-    timeout: parseInt(process.env.SCAN_TIMEOUT) || 300000
+    timeout: parseInt(process.env.SCAN_TIMEOUT) || 300000,
+    safeMode: enableSafeMode
   };
 
   try {
@@ -47,7 +84,8 @@ app.post('/api/scan', async (req, res) => {
           websites: scanOptions.websites,
           method: scanOptions.method,
           filter: scanOptions.filter,
-          top: scanOptions.top
+          top: scanOptions.top,
+          safeMode: scanOptions.safeMode
         },
         results: scanResult
       })
@@ -68,7 +106,8 @@ app.post('/api/scan', async (req, res) => {
           websites: scanOptions.websites,
           method: scanOptions.method,
           filter: scanOptions.filter,
-          top: scanOptions.top
+          top: scanOptions.top,
+          safeMode: scanOptions.safeMode
         },
         timestamp: new Date().toISOString()
       }

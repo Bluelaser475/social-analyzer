@@ -1,0 +1,182 @@
+{
+  "description": "Safe Mode Configuration - Whitelist of trusted public social media and professional platforms",
+  "version": "1.0.0",
+  "lastUpdated": "2025-10-27",
+  "safeSources": [
+    {
+      "name": "Twitter",
+      "domain": "twitter.com",
+      "urlPattern": "twitter.com",
+      "category": "Social Media",
+      "description": "Public social networking platform"
+    },
+    {
+      "name": "Twitter Mobile",
+      "domain": "mobile.twitter.com",
+      "urlPattern": "mobile.twitter.com",
+      "category": "Social Media",
+      "description": "Mobile version of Twitter"
+    },
+    {
+      "name": "GitHub",
+      "domain": "github.com",
+      "urlPattern": "github.com",
+      "category": "Developer Platform",
+      "description": "Software development and version control platform"
+    },
+    {
+      "name": "Reddit",
+      "domain": "reddit.com",
+      "urlPattern": "reddit.com",
+      "category": "Social Media",
+      "description": "Social news aggregation and discussion platform"
+    },
+    {
+      "name": "LinkedIn",
+      "domain": "linkedin.com",
+      "urlPattern": "linkedin.com",
+      "category": "Professional Network",
+      "description": "Professional networking platform"
+    },
+    {
+      "name": "Facebook",
+      "domain": "facebook.com",
+      "urlPattern": "facebook.com",
+      "category": "Social Media",
+      "description": "Social networking platform"
+    },
+    {
+      "name": "Instagram",
+      "domain": "instagram.com",
+      "urlPattern": "instagram.com",
+      "category": "Social Media",
+      "description": "Photo and video sharing platform"
+    },
+    {
+      "name": "YouTube",
+      "domain": "youtube.com",
+      "urlPattern": "youtube.com",
+      "category": "Video Platform",
+      "description": "Video sharing and streaming platform"
+    },
+    {
+      "name": "TikTok",
+      "domain": "tiktok.com",
+      "urlPattern": "tiktok.com",
+      "category": "Social Media",
+      "description": "Short-form video platform"
+    },
+    {
+      "name": "Medium",
+      "domain": "medium.com",
+      "urlPattern": "medium.com",
+      "category": "Publishing Platform",
+      "description": "Online publishing platform"
+    },
+    {
+      "name": "Stack Overflow",
+      "domain": "stackoverflow.com",
+      "urlPattern": "stackoverflow.com",
+      "category": "Developer Platform",
+      "description": "Q&A platform for developers"
+    },
+    {
+      "name": "Behance",
+      "domain": "behance.net",
+      "urlPattern": "behance.net",
+      "category": "Creative Platform",
+      "description": "Portfolio platform for creative professionals"
+    },
+    {
+      "name": "Dribbble",
+      "domain": "dribbble.com",
+      "urlPattern": "dribbble.com",
+      "category": "Creative Platform",
+      "description": "Design community and portfolio platform"
+    },
+    {
+      "name": "DeviantArt",
+      "domain": "deviantart.com",
+      "urlPattern": "deviantart.com",
+      "category": "Creative Platform",
+      "description": "Art and creative community platform"
+    },
+    {
+      "name": "Flickr",
+      "domain": "flickr.com",
+      "urlPattern": "flickr.com",
+      "category": "Photo Platform",
+      "description": "Photo sharing and hosting platform"
+    },
+    {
+      "name": "Pinterest",
+      "domain": "pinterest.com",
+      "urlPattern": "pinterest.com",
+      "category": "Social Media",
+      "description": "Image sharing and inspiration platform"
+    },
+    {
+      "name": "Tumblr",
+      "domain": "tumblr.com",
+      "urlPattern": "tumblr.com",
+      "category": "Social Media",
+      "description": "Microblogging and social networking platform"
+    },
+    {
+      "name": "Vimeo",
+      "domain": "vimeo.com",
+      "urlPattern": "vimeo.com",
+      "category": "Video Platform",
+      "description": "Video hosting and sharing platform"
+    },
+    {
+      "name": "SoundCloud",
+      "domain": "soundcloud.com",
+      "urlPattern": "soundcloud.com",
+      "category": "Audio Platform",
+      "description": "Audio streaming and sharing platform"
+    },
+    {
+      "name": "Spotify",
+      "domain": "spotify.com",
+      "urlPattern": "spotify.com",
+      "category": "Audio Platform",
+      "description": "Music streaming platform"
+    },
+    {
+      "name": "Twitch",
+      "domain": "twitch.tv",
+      "urlPattern": "twitch.tv",
+      "category": "Streaming Platform",
+      "description": "Live streaming platform"
+    },
+    {
+      "name": "GitLab",
+      "domain": "gitlab.com",
+      "urlPattern": "gitlab.com",
+      "category": "Developer Platform",
+      "description": "DevOps and Git repository platform"
+    },
+    {
+      "name": "Patreon",
+      "domain": "patreon.com",
+      "urlPattern": "patreon.com",
+      "category": "Creator Platform",
+      "description": "Membership platform for creators"
+    },
+    {
+      "name": "Discord",
+      "domain": "discord.com",
+      "urlPattern": "discord.com",
+      "category": "Communication Platform",
+      "description": "Voice, video, and text communication platform"
+    },
+    {
+      "name": "Snapchat",
+      "domain": "snapchat.com",
+      "urlPattern": "snapchat.com",
+      "category": "Social Media",
+      "description": "Multimedia messaging platform"
+    }
+  ]
+}
